@@ -1,11 +1,11 @@
 # Benchmark Report
 
-Generated at: 2026-06-13T14:18:31+00:00
+Generated at: 2026-06-14T15:50:17+00:00
 Prompt SHA256: `d25f119447215ebf47477c1ce61b24f801bfcb9336467f5b019d554f3c83537c`
 
 ## Progress
 
-- `completed`: 34
+- `completed`: 35
 - `completed_with_errors`: 2
 - `failed`: 8
 - `timeout`: 1
@@ -27,6 +27,7 @@ Prompt SHA256: `d25f119447215ebf47477c1ce61b24f801bfcb9336467f5b019d554f3c83537c
 - `qwen3_32b` -> `ollama/qwen/qwen3-32b`: Requested local model family; exact hosted variant available through opencode. Superseded by the Qwen 3.5 line for future local benchmarking. Skipped by default after benchmark preview averaged 7.96 output tok/s over the first 3 steps (< 20.00).
 - `qwen3_coder_next` -> `ollama/qwen/qwen3-coder-next`: Best direct coding-oriented local Qwen variant matching the original benchmark brief. Skipped by default after benchmark preview measured 6.59 output tok/s (< 20.00).
 - `qwen3_5_35b` -> `ollama/qwen/qwen3.5-35b`: Requested local model family; exact hosted variant available through opencode. Skipped by default because the current benchmark pass is restricted to OpenRouter models that previously completed successfully.
+- `qwen3_6_35b_q8` -> `llamacpp/Qwen3.6-35B-A3B`: Qwen 3.6 35B-A3B (released 2026-04-15). Same qwen3_5_moe architecture as 3.5 (35B total / 3B active MoE). Q8 ~32 GB
 - `qwen3_6_35b` -> `ollama/qwen/qwen3.6-35b`: Qwen 3.6 35B-A3B (released 2026-04-15). Same qwen3_5_moe architecture as 3.5 (35B total / 3B active MoE). Q3_K_M ~16 GB — drop-in replacement for 3.5. Significant benchmark gains: SWE-bench 73.4 (was 70), Terminal-Bench 51.5 (was 40.5), MCPMark 37 (was 27). Has vision encoder. Same chat template and llama.cpp flags as 3.5.
 - `qwen3_5_122b` -> `ollama/qwen/qwen3.5-122b`: Hosted locally via llama-swap. Needs --reasoning-format none on llama-server to avoid reasoning_content tokens that some clients mishandle. Tool calling works correctly with Qwen chat template.
 - `gpt_oss_20b` -> `ollama/openai/gpt-oss-20b`: Added as a local Ollama GPT OSS baseline for later warmup and benchmark testing.
@@ -88,6 +89,7 @@ Prompt SHA256: `d25f119447215ebf47477c1ce61b24f801bfcb9336467f5b019d554f3c83537c
 | Qwen 3 32B | ollama | - | completed_with_errors | 1271.45 | 22922 | 18.03 | no | 87 | Generated files do not resemble the requested Rails project. |
 | Qwen 3 Coder Next | ollama | - | completed | 1041.72 | 39054 | 37.49 | yes | 1675 | Rails app, tests, README, and container files detected. |
 | Qwen 3.5 35B | ollama | - | completed | 1671.20 | 76919 | 46.03 | yes | 1478 | Rails app, tests, README, and container files detected. |
+| Qwen 3.6 35B Q8 | llamacpp | - | completed | 2370.85 | 86771 | 141.84 | yes | 15034 | Exit code -15. Rails app, tests, README, and container files detected. |
 | Qwen 3.6 35B | ollama | - | not_run | - | - | - | n/a | 0 | Run has not been executed yet. |
 | Qwen 3.5 122B | ollama | - | completed | 2564.18 | 57472 | 22.41 | yes | 1503 | Rails app, tests, README, and container files detected. |
 | GPT OSS 20B | ollama | - | failed | 609.59 | 32553 | 53.40 | no | 1310 | Generated files do not resemble the requested Rails project. |
